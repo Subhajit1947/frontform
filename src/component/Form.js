@@ -8,7 +8,7 @@ function Form() {
     const [hobbi,sethobbi]=useState('')
     const navigate=useNavigate()
     const handlesave=()=>{
-        axios.post('http://localhost:4000/',{name,mob,email,hobbi}).then(()=>{
+        axios.post('https://encouraging-jumper-ray.cyclic.app',{name,mob,email,hobbi}).then(()=>{
             //alert('data successfuly add')
             navigate('/')
         })
@@ -68,7 +68,7 @@ function Form() {
                 </label>
             </div>
             <div style={{height:'16%',width:'90%',textAlign:'center'}}>
-                <button style={{height:'60%',width:'95%',borderRadius:'1rem',
+                <button style={{cursor:'pointer',height:'60%',width:'95%',borderRadius:'1rem',
                     backgroundColor:'#F2C94C',border:'none',fontWeight:'bold',
                     color:'white'}} onClick={handlesave}>Save 
                 </button>

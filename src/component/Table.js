@@ -11,14 +11,14 @@ function Table() {
    
    const navigate=useNavigate()
    useEffect(()=>{
-      axios.get('http://localhost:4000/').then((res)=>{
+      axios.get('https://encouraging-jumper-ray.cyclic.app').then((res)=>{
         setudata([...res.data])
       }).catch((err)=>{
          console.log(err)
       })
    },[udata])
    const handledelete=(mail)=>{
-      axios.post('http://localhost:4000/de',{email:mail}).then(()=>{
+      axios.post('https://encouraging-jumper-ray.cyclic.app/de',{email:mail}).then(()=>{
          alert('sucessfully deleted')
       }).catch((err)=>{
          alert(err.message)
@@ -39,7 +39,7 @@ function Table() {
 
    }
    const handlesend=()=>{
-      axios.post('http://localhost:4000/sm',{email,password,userd}).then(()=>{
+      axios.post('https://encouraging-jumper-ray.cyclic.app/sm',{email,password,userd}).then(()=>{
          alert('mail send sucessfully')
       })
       .catch((err)=>{
@@ -89,7 +89,7 @@ function Table() {
                   <td style={{textAlign:'center'}}>{obj.mob}</td>
                   <td style={{textAlign:'center'}}>{obj.email}</td>
                   <td style={{textAlign:'center'}}>{obj.hobbi}</td>
-                  <td style={{textAlign:'center'}}><button onClick={()=>handledelete(obj.email)} style={{backgroundColor:'red',color:'white',borderRadius:'5px',border:'none'}}>Delete</button></td>
+                  <td style={{textAlign:'center'}}><button onClick={()=>handledelete(obj.email)} style={{cursor:'pointer',backgroundColor:'red',color:'white',borderRadius:'5px',border:'none'}}>Delete</button></td>
                </tr>
                ))}
                
@@ -97,7 +97,7 @@ function Table() {
          </table>
       </div>
       <div style={{width:'30%',marginTop:'3rem',display:'flex',flexDirection:'column',alignItems:'center',marginRight:'1rem',padding:'0.1rem'}}>
-        <Link to='/form'><button style={{height:'2rem',width:'5rem',borderRadius:'10px'}}>ADD</button></Link>
+        <Link to='/form'><button style={{cursor:'pointer',height:'2rem',width:'5rem',borderRadius:'10px'}}>ADD</button></Link>
         <label>
                     <span style={{fontWeight:'bold'}}>Email</span><span style={{color:'red'}}>*</span><br/> 
                     <input style={{margin:'4px',fontSize:'0.95rem',height:'2rem',
@@ -118,7 +118,7 @@ function Table() {
                         value={password} onChange={(e)=>setpassword(e.target.value)}
                     />
                 </label>
-                <button onClick={handlesend} style={{height:'2rem',width:'5rem',borderRadius:'10px',marginTop:'1rem'}}>Send</button>
+                <button onClick={handlesend} style={{height:'2rem',width:'5rem',borderRadius:'10px',marginTop:'1rem',cursor:'pointer'}}>Send</button>
       </div>
     </div>}
     </>
